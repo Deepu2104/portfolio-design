@@ -75,6 +75,20 @@ export const DATA = {
   ],
   projects: [
     {
+      name: "Resume Screening System",
+      description: "An intelligent resume screening system powered by RAG and semantic embeddings that automates candidate evaluation.",
+      tech: ["Python", "Streamlit", "Groq API", "RAG", "SentenceTransformers"],
+      details: [
+        "Process 100+ resumes/hour with 95%+ accuracy, reducing hiring time by 90%.",
+        "Implemented RAG-based ranking with dual-scoring (semantic + technical context).",
+        "Integrated Groq LLM (llama-3.3-70b) for actionable candidate insights and summaries.",
+      ],
+      links: {
+        github: "https://github.com/Deepu2104/resume-screener.git",
+        demo: "https://resume-screener-1-bls7.onrender.com/",
+      },
+    },
+    {
       name: "Distributed Task Scheduler",
       description: "A fault-tolerant distributed task scheduler capable of handling concurrent job executions.",
       tech: ["Go", "gRPC", "Redis", "PostgreSQL"],
