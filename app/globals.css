@@ -1,26 +1,173 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* Removed problematic plugin and manually adding necessary utilities */
+/* Custom variant for class-based dark mode */
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --font-sans: var(--font-geist-sans), Inter, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), menlo, monospace;
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-border: var(--border);
+
+  --animate-fade-in: fade-in 0.5s ease-out forwards;
+  --animate-slide-up: slide-up 0.7s ease-out forwards;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  .glass {
+    @apply backdrop-blur-xl bg-background/60 border border-black/5 dark:border-white/10 shadow-sm dark:shadow-lg;
   }
+
+  /* Manual implementation of tailwindcss-animate utilities needed for cmdk */
+  .animate-in {
+    animation-duration: 150ms;
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    animation-fill-mode: forwards;
+  }
+
+  .fade-in {
+    animation-name: fade-in;
+  }
+
+  .zoom-in-95 {
+    --tw-enter-scale: 0.95;
+    animation-name: enter-zoom;
+  }
+
+  /* Intense Neon Hover Effects */
+  .hover-neon {
+    transition: all 0.3s ease;
+  }
+
+  .hover-neon:hover {
+    color: var(--foreground);
+  }
+
+  .dark .hover-neon:hover {
+    color: var(--primary);
+    filter: drop-shadow(0 0 8px rgba(0, 243, 255, 0.8));
+  }
+
+  .hover-neon-box {
+    transition: all 0.3s ease;
+  }
+
+  .hover-neon-box:hover {
+    border-color: rgba(100, 116, 139, 0.2);
+  }
+
+  .dark .hover-neon-box:hover {
+    border-color: rgba(0, 243, 255, 0.5);
+    box-shadow: 0 0 15px rgba(188, 19, 254, 0.4);
+    background-color: rgba(0, 243, 255, 0.05);
+  }
+}
+
+@keyframes enter-zoom {
+  from {
+    transform: scale(var(--tw-enter-scale, 1));
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:root {
+  /* Premium Light Mode (Stripe/Linear inspired) */
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+  --muted: #f3f4f6;
+  --muted-foreground: #64748b;
+  --card: #ffffff;
+  --card-foreground: #0a0a0a;
+  --border: #e2e8f0;
+  --primary: #0f172a;
+  --primary-foreground: #ffffff;
+  /* Spotlight Color: Slate 900 with low opacity for light mode */
+  --spotlight-color: rgba(15, 23, 42, 0.08);
+}
+
+.dark {
+  /* Cyberpunk / Neon Theme (Applied only in Dark Mode) */
+  --background: #000000;
+  /* Deep black-purple */
+  --foreground: #e0e0ff;
+  /* Pale cyan-white */
+  --muted: #1a1a2e;
+  --muted-foreground: #94a3b8;
+  --card: rgba(20, 20, 40, 0.6);
+  /* Glassy dark */
+  --card-foreground: #e0e0ff;
+  --border: rgba(188, 19, 254, 0.3);
+  /* Dim neon purple border */
+  --primary: #00f3ff;
+  /* Neon Cyan */
+  --primary-foreground: #000000;
+  /* Spotlight Color: Neon Purple glow */
+  --spotlight-color: rgba(188, 19, 254, 0.25);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Apply Orbitron font and glow to headers in Dark Mode */
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+  font-family: var(--font-orbitron), var(--font-sans);
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+}
+
+/* Specific background gradient for Cyberpunk Dark Mode */
+.dark body {
+  background: #000000;
+  /* subtle deep radial to give depth without grey wash */
+  background: radial-gradient(circle at 50% 0%, #050505 0%, #000000 100%);
+  background-attachment: fixed;
 }
