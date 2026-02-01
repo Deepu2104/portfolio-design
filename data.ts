@@ -43,7 +43,7 @@ export const DATA = {
       },
       {
         name: "DevOps / Infrastructure",
-        skills: ["Docker", "Kubernetes", "AWS", "CI/CD (GitHub Actions)", "Terraform", "Linux", "Prometheus/Grafana"],
+        skills: ["Docker", "Kubernetes", "AWS", "CI/CD (GitHub Actions)", "Linux", "Prometheus/Grafana"],
       },
       {
         name: "Languages",
@@ -89,47 +89,30 @@ export const DATA = {
       },
     },
     {
-      name: "Distributed Task Scheduler",
-      description: "A fault-tolerant distributed task scheduler capable of handling concurrent job executions.",
-      tech: ["Go", "gRPC", "Redis", "PostgreSQL"],
+      name: "Event Driven Payment System",
+      description: "A payment system that processes payments in an event-driven architecture, uses kafka for fraud detection, redis for auth tokens and idempotency transactions with locks",
+      tech: ["Java", "Spring Boot", "Kafka", "Redis", "PostgreSQL"],
       details: [
-        "Implemented a master-worker architecture with heartbeats for failure detection.",
-        "Used Redis for distributed locking to prevent duplicate job execution.",
-        "Designed a retry mechanism with exponential backoff for failed tasks.",
+        "Architected an {event-driven payment engine} using Spring Boot 3 and Kafka, decoupling core transaction processing",
+        "from fraud detection to reduce API p99 latency by 40% through non-blocking asynchronous validation.",
       ],
       links: {
-        github: "https://github.com/Deepu2104/distributed-scheduler",
-        demo: "#",
+        github: "https://github.com/Deepu2104/payment-wallet",
+        demo: "https://payment-wallet-eight.vercel.app/login",
       },
     },
     {
-      name: "High-Throughput Rate Limiter",
-      description: "A distributed rate limiter service to protect APIs from abuse.",
-      tech: ["Java", "Spring Boot", "Redis (Lua Scripts)"],
+      name: "Build With me",
+      description: "The aim of this project is to develop a platform for college students to address the challenge of finding suitable peers with similar skill sets for collaborative projects and team-based activities.",
+      tech: ["Javascript", "Node.js", "Express", "MongoDB", "Redis"],
       details: [
-        "Implemented Token Bucket and Leaky Bucket algorithms for precise traffic control.",
-        "Used Redis Lua scripts to ensure atomicity across distributed instances.",
-        "Achieved <5ms latency overhead per request under high load.",
+        "This website serves as a solution by providing a comprehensive platform where students can easily find and connect with other students within their college",
       ],
       links: {
-        github: "https://github.com/Deepu2104/rate-limiter",
-        demo: "#",
+        github: "https://github.com/Deepu2104/Build-with-me",
+        demo: "https://build-with-me-100fc.web.app/",
       },
-    },
-    {
-      name: "E-commerce Backend API",
-      description: "Complete backend for an e-commerce platform with inventory management.",
-      tech: ["Node.js", "Express", "PostgreSQL", "Docker"],
-      details: [
-        "Designed a normalized database schema handling complex product variants and orders.",
-        "Implemented secure payment processing integration with Stripe Webhooks.",
-        "Optimized search performance using full-text search indexing.",
-      ],
-      links: {
-        github: "https://github.com/Deepu2104/ecommerce-api",
-        demo: "#",
-      },
-    },
+    }
   ],
   articles: [
     {
