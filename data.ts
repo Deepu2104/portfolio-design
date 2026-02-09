@@ -1,5 +1,5 @@
 import { Mail } from "lucide-react";
-import { SiGithub, SiLinkedin } from "react-icons/si";
+import { SiGithub, SiLeetcode, SiLinkedin } from "react-icons/si";
 
 export const DATA = {
   name: "Deepak",
@@ -49,27 +49,32 @@ export const DATA = {
         name: "Languages",
         skills: ["Java", "Python", "Go", "C++", "SQL", "Bash"],
       },
+      {
+        name: "Frameworks",
+        skills: ["Spring Boot", "FastAPI", "Next.js", "React", "Node.js", "Express", "TailwindCSS"],
+      },
     ],
   },
   experience: [
     {
       company: "Infosys",
-      role: "Specialist Programmer",
-      period: "Jan2024 - Present",
+      role: "Specialist Programmer (APPLE Client)",
+      period: "Jan 2024 - Present",
       description: [
-        "Architected and deployed a microservices-based notification system handling 1M+ events/day using Kafka and Go.",
-        "Optimized database queries decreasing average response time by 40% for critical endpoints.",
-        "Implemented automated CI/CD pipelines reducing deployment time from 20 minutes to 5 minutes.",
+        "Developed and maintained APPLE Global GCRM repairs platform serving 4 service channels (Retail, Online, Contact Center, Partner) orchestrating complex repair workflows involving 10+ backend system integrations (SAP, PDM, CDM, GSX) while implementing multi-level caching and fault tolerant design patterns.",
+        "Reduced payload sizes by 60% and minimized serialization latency by architecting the migration of critical inter-service contracts from JSON to Protocol Buffers (Protobuf) for high-traffic microservices.",
+        "Architected an event-driven stolen device validation system using Kafka event sourcing, implementing async producer-consumer pattern, preventing fraudulent repairs while maintaining less than 100ms latency impact.",
+        "Engineered a proactive health-monitoring system for databases, external services, circuit breaker states and dependencies, reducing Mean Time to Detection (MTTD) by 60% and prevented an estimated 15% of cascading system failures.",
+        "Implemented a distributed per-user rate limiting system using a Redis-backed Token Bucket algorithm, processing validation checks in less than 5ms to prevent API abuse across 100+ service instances.",
+        "Accelerated team delivery velocity and onboarding efficiency by 20% by mentoring junior engineers on API development, Microservices, Spring Boot best practices, and production debugging techniques.",
       ],
     },
     {
       company: "Infosys",
       role: "Software Engineer Trainee",
-      period: "Oct 2023 - Dec 2023",
+      period: "Aug 2023 - Dec 2023",
       description: [
-        "Developed RESTful APIs for the user management service using Python/FastAPI.",
-        "Integrated Redis caching to offload read-heavy traffic from the primary database.",
-        "Collaborated with frontend teams to define API contracts and ensure seamless integration.",
+        "Architected and deployed a cloud-native Full-Stack application using Spring Boot and MySQL, leveraging AWS (EC2, RDS) to ensure 99.9% service uptime through automated health checks and managed database failover.",
       ],
     },
   ],
@@ -89,7 +94,7 @@ export const DATA = {
       },
     },
     {
-      name: "Event Driven Payment System",
+      name: "Event Driven Payment Wallet System",
       description: "A payment system that processes payments in an event-driven architecture, uses kafka for fraud detection, redis for auth tokens and idempotency transactions with locks",
       tech: ["Java", "Spring Boot", "Kafka", "Redis", "PostgreSQL"],
       details: [
@@ -152,6 +157,11 @@ export const DATA = {
       name: "GitHub",
       url: "https://github.com/Deepu2104",
       icon: SiGithub,
+    },
+    {
+      name: "LeetCode",
+      url: "https://leetcode.com/u/deepu_21/",
+      icon: SiLeetcode,
     },
   ],
 };
